@@ -69,8 +69,7 @@ const Details = ({ type }) => {
         className="relative flex h-[18rem] pl-6 pb-4 bg-[center_30%] pt-10 bg-cover items-center"
         style={{
           backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(${imageUrl})`,
-          // backgroundPosition: 'center 30%',
-          // backgroundSize: 'cover',
+
         }}
       >
         <div
@@ -124,7 +123,7 @@ const Details = ({ type }) => {
             </div>
             <img
               className="flex h-10 w-10 rounded-lg"
-              src={track.album.images[0].url}
+              src={track.album.images[0].url || "../../images/song.jpg"}
               alt={track.name}
             />
             <div className="flex flex-col w-3/4 md:w-30 lg:w-80 ml-3 mb-1">
@@ -217,7 +216,7 @@ const Details = ({ type }) => {
             </div>
             <img
               className="flex h-10 w-10 rounded-lg"
-              src={playlist.track.album.images[0].url}
+              src={playlist.track.album.images[0].url || "../../images/song.jpg"}
               alt={playlist.track.album.name}
             />
             <div className="flex flex-col w-3/4 md:w-30 lg:w-80 ml-3 mb-1">

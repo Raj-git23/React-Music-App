@@ -24,13 +24,11 @@ const NavLinks = ({ handleClick }) => (
 
 const SideBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  let logo = "../images/lofgo6.jpg";
-  let avatar = "../images/avatar2.png";
-
+  // console.log(im)
   return (
     <>
       <div className="md:flex hidden flex-col w-[240px] pt-8 px-4 bg-[#1b1515]">
-        <img src={logo} alt="logo" className="w-full h-fit bg-origin-content rounded-full object-contain filter invert-brightness-contrast" />
+        <img src='../../images/logo.jpg' alt="logo" className="w-full h-fit bg-origin-content rounded-full object-contain filter invert-brightness-contrast" />
         <NavLinks />
       </div>
 
