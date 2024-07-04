@@ -5,7 +5,7 @@ import { FaPlay, FaPause } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const PlayPause = ({ isPlaying, activeTrack, previewUrl, trackId, handlePlay, handlePause }) => {
+const PlayPause = ({ isPlaying, activeTrack, previewUrl, trackId, handlePlay, handlePause, position }) => {
   const dispatch = useDispatch();
 
   const handlePlayPauseClick = () => {
@@ -22,11 +22,13 @@ const PlayPause = ({ isPlaying, activeTrack, previewUrl, trackId, handlePlay, ha
 
   return (
     <>
-    <button onClick={handlePlayPauseClick}>
+    <button onClick={handlePlayPauseClick}
+    className={`${position === 'center' ? 'absolute inset-0 flex justify-center items-center' : 'relative w-6 h-6 flex items-center justify-center'}`}
+    >
       {isPlaying && activeTrack === trackId ? (
-        <FaPause className="w-4 h-4 text-white transition-opacity duration-300 opacity-100" />
+        <FaPause className="w-4 h-4 text-white transition-opacity duration-300 opacity-100 items-center" />
       ) : (
-        <FaPlay className="w-4 h-4 text-white transition-opacity duration-300 opacity-100" />
+        <FaPlay className="w-4 h-4 text-white transition-opacity duration-300 opacity-100 items-center" />
       )}
     </button>
     <ToastContainer /></>

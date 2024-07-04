@@ -1,23 +1,39 @@
-import React from 'react';
-import { FiSearch } from 'react-icons/fi';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
 
-function SearchBar() {  
+const SearchBar = () => {  
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+  navigate(`/search/${searchTerm}`);
+  };
   return (
-    <div className="relative flex">
-      <div className="flex items-center bg-transparent w-[60rem] p-3 m-3 ml-8">
-        <FiSearch className="text-gray-500 mr-2" />
+      <form
+      autoComplete="off"
+      className="p-2 text-white/60 focus-within:text-white-600"
+      onSubmit={handleSubmit}
+    >
+      <label htmlFor="search-field" className="sr-only">
+        Search all songs
+      </label>
+      <div className="flex flex-row justify-start items-center">
+        <FiSearch className="w-5 h-5 ml-4" />
         <input
-          id="searchField"
-          className="bg-transparent w-full outline-none border-b-2 p-2 border-transparent focus:border-[#a2a0a3] hover:border-[#a2a0a3]"
-          type="text"
-          placeholder="Search..."
+          name="search-field"
+          autoComplete="off"
+          id="search-field"
+          placeholder="Search"
+          type="search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="flex-1 bg-transparent border-none focus-within:border-b outline-none placeholder-white-500 text-base text-white p-4"
         />
       </div>
-      {/* <div className="absolute right-0 mt-4 mr-8  ">
-          <img src="../images/avatar2.jpg" className="rounded-full h-12 w-12" />
-      </div> */}
-    </div>
+    </form>
   );
 }
 

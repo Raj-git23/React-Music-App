@@ -12,7 +12,7 @@ const Login = () => {
       <img src="../../../images/spotify_logo.png"
         className="bg-black h-48 max-[750px]:h-32 max-[500px]:h-20" />
       <button 
-        className="bg-white px-8 py-4 m-8 font-bold text-xl rounded-full md:text-lg max-[600px]:p-2 sm:text-base"
+        className="bg-white px-8 py-4 m-8 font-bold sm:text-base  rounded-full md:text-lg max-[600px]:p-2 sm:px-2"
         onClick={handleClick}
       > 
         Connect Spotify 

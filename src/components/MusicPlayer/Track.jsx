@@ -1,9 +1,10 @@
 import React from "react";
 
-const Track = ({ isPlaying, isActive, activeSong, trackName, artistNames, imageUrl}) => {
+const Track = ({ isPlaying, isActive, activeSong}) => {
 
+  // console.log(activeSong);
   return(
-  <div className="flex-1 flex items-center justify-start">
+  <div className="flex w-1/3 items-center justify-start">
     <div
       className={`${
         isPlaying && isActive ? "animate-[spin_3s_linear_infinite]" : ""

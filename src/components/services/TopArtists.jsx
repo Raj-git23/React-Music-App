@@ -1,17 +1,17 @@
 import React from "react";
-import { useGetArtistQuery } from "../../redux/services/APIcore";
+import { useGetArtistBySearchQuery } from "../../redux/services/APIcore";
 import ArtistCarousal from "../Cards/ArtistCarousal";
-import { Error, Loader } from "..";
+import { Error, Loader } from "../Fetching";
 
-const TopArtists = () => {
-  const { data, isLoading, error } = useGetArtistQuery();
-
-  // console.log("artist", data?.artists?.items.id);
+const TopArtists = ({genre, market, name, type}) => {
+  const { data , isLoading , error } = useGetArtistBySearchQuery({genre:genre, market:market, type:type});
+  
+  // console.log("artist", data);
 
   if (isLoading) return <Loader title="Loading artists..." />;
   if (error) return <Error />;
 
-  return <TopArtists data={data} artistId={data?.artists?.items} name="Top Artists" />;
+  return <ArtistCarousal data={data} artistId={data?.artists?.items} name={name} market={market} />;
 };
 
 export default TopArtists;

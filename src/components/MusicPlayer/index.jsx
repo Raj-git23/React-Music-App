@@ -19,10 +19,10 @@ const MusicPlayer = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (currentSongs.length && activeSong) {
+    if (currentSongs.length) {
       dispatch(playPause(true));
     }
-  }, [currentIndex, activeSong, dispatch, currentSongs.length]);
+  }, [currentIndex]);
 
   const handlePlayPause = () => {
     if (!isActive) return;
@@ -34,12 +34,17 @@ const MusicPlayer = () => {
     }
   };
 
+  // console.log(`activesong--- ${activeSong}`);
+  // console.log(`currentIndex--- ${currentIndex}`);
+  // console.log(`currentsong--- ${currentSongs}`);
+  
   const handleNextSong = () => {
     dispatch(playPause(false));
 
     if (!shuffle) {
       dispatch(nextSong((currentIndex + 1) % currentSongs.length));
-    } else {
+    } 
+    else {
       dispatch(nextSong(Math.floor(Math.random() * currentSongs.length)));
     }
   };
@@ -63,7 +68,7 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="flex z-10 fixed h-20 w-full bottom-0 justify-between items-center bg-[#3d1857c4] backdrop-blur-sm">
+    <div className="flex z-10 fixed min-[10px]:px-6 md:px-4 h-20 w-full bottom-0 justify-between items-center bg-[#252327c4] backdrop-blur-sm">
       <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} />
       <div className="flex flex-col item-center items-center">
       <Controls

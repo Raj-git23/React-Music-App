@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { SongCard } from "..";
+import  SongCard  from "../SongCard";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -12,7 +12,7 @@ const Carousal = ({ data, activeSong, isPlaying, content, name }) => {
   return (
     <>
     <div className="relative mt-4">
-        <h2 className="absolute left-2 text-white text-4xl font-bold ml-4 mt-3">
+        <h2 className="absolute text-white text-2xl lg:text-4xl font-bold lg:ml-2 mt-3">
           {name}
         </h2>
         <div className="flex justify-end items-center mt-2 mr-6">
@@ -45,13 +45,13 @@ const Carousal = ({ data, activeSong, isPlaying, content, name }) => {
       >
          {content?.map((playlist, index) => (
           <SwiperSlide
-            key={playlist.id}
+            key={`${playlist.id}-${index}`} // Ensuring unique key
             style={{ width: '180px', height: 'auto' }}
             className="rounded-lg animate-slideright"
             virtualIndex={index}
           >
             <SongCard
-              key={content.id}
+              key={`${playlist.id}-${index}`} // Ensuring unique key
               playlist={playlist}
               i={index}
               activeSong={activeSong}

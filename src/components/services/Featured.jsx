@@ -1,6 +1,6 @@
 import React,{ useState} from "react";
 // import { useSelector } from "react-redux";
-import { Error, Loader } from "..";
+import { Error, Loader } from "../Fetching";
 import { useGetFeaturedPlaylistsQuery } from "../../redux/services/APIcore";
 import SmallCarousal from "../Cards/SmallCarousal"; 
 
@@ -11,7 +11,6 @@ const Featured = () => {
   const [activeItem, setActiveItem] = useState(null);
 
   const { data, isLoading, error } = useGetFeaturedPlaylistsQuery();
-    // console.log("featured",data);
 
   if (isLoading) return <Loader title="Loading Featured..." />;
   if (error) return <Error />;

@@ -15,10 +15,10 @@ const Artistcarousal = ({ data, name }) => {
   return (
     <>
       <div className="relative mt-4">
-        <h2 className="absolute left-2 text-white text-4xl font-bold ml-6 mt-3">
+        <h2 className="absolute text-white text-2xl lg:text-4xl font-bold ml-2 lg:ml-2 mt-3">
           {name}
         </h2>
-        <div className="flex justify-end items-center mt-2 mr-6">
+        <div className="flex justify-end items-center mt-0 mr-6">
           <button
             onClick={() => swiperRef.current?.slidePrev()}
             className="mr-1 px-2 py-2 bg-transparent text-4xl text-white rounded"
@@ -56,7 +56,7 @@ const Artistcarousal = ({ data, name }) => {
               to={`/artists/${artist.id}/${artist.name}`}
               state={{ imageUrl: artist.images[0]?.url }} // Pass the image URL in the state
             >
-              <div className="flex flex-col mt-2 w-[180px] p-2 bg-opacity-80 backdrop-blur-sm ransform transition-transform duration-300 hover:scale-105 rounded-lg cursor-pointer">
+              <div className="flex flex-col lg:mt-2 w-[180px] lg:p-2 bg-opacity-80 backdrop-blur-sm ransform transition-transform duration-300 hover:scale-105 rounded-lg cursor-pointer">
                 <div
                   // onClick={() => handleClick(artist.id)}
                   className="relative h-full flex object-cover group items-center"

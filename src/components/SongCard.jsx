@@ -24,23 +24,16 @@ const SongCard = ({ playlist, i, isPlaying, activeSong, data }) => {
         to={`/playlists/${playlist.id}/${playlist.name}`}
         state={{ imageUrl: playlist.images[0]?.url }}
       >
-        <div className="flex flex-col mt-4 w-[180px] p-2 bg-opacity-80 backdrop-blur-sm ransform transition-transform duration-300 hover:scale-[1.05] hover:bg-[#533b6d75] animate-slideup rounded-lg cursor-pointer">
+        <div className="flex flex-col w-[180px] p-2 bg-opacity-80 backdrop-blur-sm ransform transition-transform duration-300 hover:scale-[1.05] hover:bg-[#27242b75] animate-slideup rounded-lg cursor-pointer">
           <div className="relative w-full h-fit group">
-            <div
-              className={`absolute inset-0 justify-center items-center object-cover rounded-md bg-opacity-30 bg-[#574f5f75] group-hover:flex ${
+            {/* <div
+              className={`absolute inset-0 justify-center items-center object-cover rounded-md bg-opacity-30 bg-[#5f5c6475] group-hover:flex ${
                 activeSong?.name === playlist.name
                   ? "flex bg-black bg-opacity-70 "
                   : "hidden"
               }`}
             >
-              {/* <PlayPause
-                isPlaying={isPlaying}
-                activeItem={activeSong}
-                item={playlist}
-                handlePause={handlePauseClick}
-                handlePlay={handlePlayClick}
-              /> */}
-            </div>
+            </div> */}
             <img
               alt={`${playlist.name}_img`}
               src={playlist.images[0]?.url}

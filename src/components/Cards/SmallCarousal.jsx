@@ -9,26 +9,11 @@ import PlayPause from "../PlayPause";
 
 const SmallCarousal = ({ content, name }) => {
   const swiperRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [activeItem, setActiveItem] = useState(null);
-
-  // const handlePlay = (item) => {
-  //   setActiveItem(item);
-  //   setIsPlaying(true);
-  // };
-
-  // // {content?.map((p,i) => (console.log(p.name)))}
-  
-  
-
-  // const handlePause = () => {
-  //   setIsPlaying(false);
-  // };
 
   return (
     <>
       <div className="relative mt-4">
-        <h2 className="absolute left-2 text-white text-4xl font-bold ml-6 mt-3">
+        <h2 className="absolute text-white text-2xl lg:text-4xl font-bold lg:ml-2 mt-3">
           {name}
         </h2>
         <div className="flex justify-end items-center mt-2 mr-6">
@@ -46,7 +31,7 @@ const SmallCarousal = ({ content, name }) => {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap mt-4">
+      <div className="flex flex-wrap lg:mt-4">
         <Swiper
           spaceBetween={20}
           freeMode
@@ -67,12 +52,12 @@ const SmallCarousal = ({ content, name }) => {
               slidesPerView: 2,
             },
             // When the window width is >= 760px
-            760: {
-              slidesPerView: 4,
+            800: {
+              slidesPerView: 3,
             },
             // When the window width is >= 1024px
-            1900: {
-              slidesPerView: 5,
+            1100: {
+              slidesPerView: 4,
             },
           }}
         >
@@ -86,7 +71,7 @@ const SmallCarousal = ({ content, name }) => {
                 to={`/playlists/${playlist.id}/${playlist.name}`}
                 state={{ imageUrl: playlist.images[0]?.url }}
               >
-                <div className="grid grid-cols-1 gap-2 bg-[#2e2137d2] hover:bg-[#433849d2] rounded-lg">
+                <div className="grid grid-cols-1 gap-2 bg-[#312c34d2] hover:bg-[#454147d2] rounded-lg">
                   <div className="flex items-center bg-opacity-80 backdrop-blur-sm rounded-lg bg-red cursor-pointer p-2">
                     <img
                       alt={`${playlist.name}_img`}

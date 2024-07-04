@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useGetBrowseNewReleasesQuery } from "../../redux/services/APIcore";
+import { useGetArtistBySearchQuery } from "../../redux/services/APIcore";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Error, Loader } from "../Fetching";
@@ -9,10 +9,11 @@ import "swiper/css/free-mode";
 import { FreeMode } from "swiper/modules";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
-const NewReleases = () => {
-  const { data, isLoading, error } = useGetBrowseNewReleasesQuery();
-  const { activeSong, isPlaying } = useSelector((state) => state.player);
+const AlbumCarousal = ({genre, market, name, type}) => {
+    const { data , isLoading , error } = useGetArtistBySearchQuery({genre:genre, market:market, type:type});
+    const { activeSong, isPlaying } = useSelector((state) => state.player);
   const swiperRef = useRef(null);
+  // console.log("albums", data?.albums);
 
   if (isLoading) return <Loader title="Loading New Releases..." />;
   if (error) return <Error />;
@@ -21,7 +22,7 @@ const NewReleases = () => {
     <>
       <div className="relative mt-4">
         <h2 className="absolute text-white text-2xl lg:text-4xl font-bold lg:ml-2 mt-3">
-          New Releases
+          {name}
         </h2>
         <div className="flex justify-end items-center mt-2 mr-6">
           <button
@@ -96,4 +97,4 @@ const NewReleases = () => {
   );
 };
 
-export default NewReleases;
+export default AlbumCarousal;
