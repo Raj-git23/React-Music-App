@@ -14,7 +14,7 @@ export const spotifyApi = createApi({
   }),
   endpoints: (builder) => ({
     getBrowseNewReleases: builder.query({
-      query: () => "browse/new-releases?limit=10",
+      query: () => "browse/new-releases",
     }),
     getSongsByGenre: builder.query({
       query: (genreId) => `browse/categories/${genreId.toLowerCase()}/playlists`,
