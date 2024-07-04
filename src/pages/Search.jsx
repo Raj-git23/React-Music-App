@@ -36,11 +36,12 @@ const Search = () => {
     <>
       <div className="flex flex-col mb-24 pt-4 bg-gradient-to-b from-[#14254dbe] to-[#000000]">
       <SearchBar />
-      <h2 className="flex m-6 mt-1 text-5xl text-white mb-7">Showing results for ... <span className="font-white font-bold">{searchTerm}</span></h2>
+      <h2 className="flex ml-4 md:m-5 text-2xl md:text-5xl text-white mb-7">Showing results for ... {searchTerm}</h2>
+      <hr className="h-px bg-gray-200 border-0 dark:bg-[#6f6868] w-[98%] ml-3 mb-3" />
         {data?.tracks?.items?.map((track, index) => (
           <div
             key={index}
-            className="flex p-1 items-center rounded-lg hover:bg-[#14254dbe]/50 cursor-pointer pl-2 pr-4 transition-all duration-300"
+            className="flex p-1 items-center rounded-lg hover:bg-[#14254dbe]/50 cursor-pointer ml-1 md:ml-4 pr-4 transition-all duration-300"
             onMouseEnter={() => setHoveredTrackIndex(index)}
             onMouseLeave={() => setHoveredTrackIndex(null)}
           >
@@ -61,9 +62,9 @@ const Search = () => {
               src={track.album.images[0].url}
               alt={track.name}
             />
-            <div className="flex flex-col sm:w-40 md:w-48 lg:w-80 ml-3 mb-1">
-              <p className="text-lg truncate">{track.name}</p>
-              <div className="flex truncate text-white/75 text-sm">
+            <div className="flex flex-col w-3/4 md:w-30 lg:w-80 ml-3 mb-1">
+              <p className="text-lg md w-3/4 md:w-60 overflow-hidden lg:w-7/12 truncate">{track.name}</p>
+              <div className="hidden lg:flex w-3/4 md:w-30 lg:w-80 text-white/75 text-sm">
                 {track.album.artists.map((artist, i) => (
                   <React.Fragment key={artist.id}>
                     <p>{artist.name}</p>
@@ -74,10 +75,10 @@ const Search = () => {
                 ))}
               </div>
             </div>
-            <p className="text-white/75 absolute truncate left-2/4 lg:left-[28rem] xl:left-[38rem]">
+            <p className="hidden md:flex text-white/75 md:w-72 absolute truncate left-2/4 lg:left-[28rem] xl:left-[38rem]">
               {track.album.album_type}
             </p>
-            <p className="absolute right-4 text-white/75">
+            <p className="absolute right-4 md:right-6 text-white/75">
               {`${Math.floor(track.duration_ms / 60000)}:${(
                 (track.duration_ms % 60000) /
                 1000
