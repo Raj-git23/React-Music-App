@@ -43,17 +43,10 @@ const Details = ({ type }) => {
   const { data, isLoading, error } = queryResult;
 
   useEffect(() => {
-    if (type && id) {
-      console.log(type, "---", id);
-    }
 
-    if (data) {
-      console.log(type, "--", data);
-    }
-    if (error) {
-      console.log("Error fetching data:", error);
-    }
-  }, [data, error, type, id]);
+    type === "artist" ? setFirstSongId(data?.tracks[0].id) : type === "playlist"  ? setFirstSongId(data?.items[0]?.track.id) : setFirstSongId(data?.items[0].id);
+
+  }, [data, type]);
 
   if (isLoading) return <Loader title="Loading ..." />;
   if (error) return <Error />;

@@ -23,7 +23,7 @@ const RelatedPlaylist = ({ id }) => {
 
   const handlePlay = (track, index) => {
     dispatch(
-      setActiveSong({ song: track, data: { tracks: [track] }, i: index })
+      setActiveSong({ song: track, data: data?.tracks, i: index })
     );
     dispatch(playPause(true));
   };
