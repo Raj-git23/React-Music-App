@@ -24,7 +24,7 @@ const SongCard = ({ playlist, i, isPlaying, activeSong, data }) => {
         to={`/playlists/${playlist.id}/${playlist.name}`}
         state={{ imageUrl: playlist.images[0]?.url }}
       >
-        <div className="flex flex-col w-[180px] p-2 bg-opacity-80 backdrop-blur-sm ransform transition-transform duration-300 hover:scale-[1.05] hover:bg-[#27242b75] animate-slideup rounded-lg cursor-pointer">
+        <div className="flex flex-col w-[180px] p-2 bg-opacity-80 backdrop-blur-sm transform transition-transform duration-300 hover:scale-[1.05] hover:bg-[#27242b75] animate-slideup rounded-lg cursor-pointer">
           <div className="relative w-full h-fit group">
             {/* <div
               className={`absolute inset-0 justify-center items-center object-cover rounded-md bg-opacity-30 bg-[#5f5c6475] group-hover:flex ${

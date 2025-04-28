@@ -41,7 +41,7 @@ export default function App() {
           <Route path="/" element={<Browse />} />
           <Route path="/top-artists" element={<Artist />} />
           <Route path="/albums" element={<Albums />} />
-          <Route path="/playlist" element={<Playlist />} />
+          {/* <Route path="/playlist" element={<Playlist />} /> */}
           <Route path="/playlists/:id/:name" element={<Details type="playlist" />} />
           <Route path="/artists/:id/:name" element={<Details type="artist" />} />
           <Route path="/album/:id/:name" element={<Details type="album" />} />

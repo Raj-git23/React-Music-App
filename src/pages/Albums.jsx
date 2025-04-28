@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 import SearchBar from '../components/SearchBar';
 import TopArtists from '../components/services/TopArtists';
-import Discover from '../components/services/Discover';
+// import Discover from '../components/services/Discover';
 import AlbumCarousal from '../components/Cards/AlbumCarousal';
 
 const Albums = () => {
